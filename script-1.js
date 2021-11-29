@@ -1,3 +1,4 @@
+// all the various letters, numbers and characters that can possibly comprise a password
 var lowercase = [
   'a',
   'b',
@@ -89,23 +90,18 @@ var specialChars = [
   ')',
   '+'
 ];
-var newPassword;
-var finalArray;
-
+// Ask user how many and what type of letter or character will constitute their password
 function getPasswordOptions() {
   var pwdLength=parseInt(prompt("How many characters would you like your password to contain"));
-  console.log(pwdLength);
   if (pwdLength < 8 || pwdLength > 128) {
     alert("Password must be between 8 and 128 characters");
     return;
   } 
   var hasSpecialChars=confirm("Would you like special characters?");
-  console.log(hasSpecialChars);
   var hasUppercaseLetters=confirm("Would you like uppercase letters in your password?");
   var hasLowercaseLetters=confirm("Would you like lowercase letters in your password?");
   var hasNumbers=confirm("Would you like numbers in your password?");
-  
-   
+  // series of conditionals to assign chosen letters or characters to an array
   if (hasSpecialChars === true) {
     var passwordArrayOne = specialChars;
   } 
@@ -119,27 +115,10 @@ function getPasswordOptions() {
     var passwordArrayFour = uppercase;
   }
   var finalArray = [passwordArrayOne, passwordArrayTwo, passwordArrayThree, passwordArrayFour];
-  console.log(finalArray);
-  
-  for (var i = 0; i < pwdLength; i++) {
-    var newPassword = finalArray[Math.floor(Math.random() * finalArray.length)];
-    
+    for (var i = 0; i < pwdLength; i++) {
+    var password = finalArray[Math.floor(Math.random() * finalArray.length)];
   }
-
-    
-  }
-    
-    
-  
-
-    //var pwdOptionsObject = {
-    //passwordLength: pwdLength,
-    //specialChars: hasSpecialChars,
-
-
-  
- //return pwdOptionsObject;
-//};
+ };
 // Assignment Code
 function generatePassword() {
   var options= getPasswordOptions()
